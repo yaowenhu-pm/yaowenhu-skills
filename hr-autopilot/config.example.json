@@ -1,0 +1,42 @@
+{
+  "base_url": "https://your-tenant.feishu.cn/base/xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "tables": {
+    "employee": "员工管理",
+    "attendance": "考勤管理",
+    "overtime": "加班管理"
+  },
+  "approval": {
+    "name_keywords": [
+      "请假",
+      "休假",
+      "leave",
+      "Leave"
+    ],
+    "lookback_days": 92,
+    "default_approver": "ou_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "approver_alias": {
+      "ou_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx": "审批人昵称"
+    }
+  },
+  "leave_type_map": {
+    "年假": "年假已用",
+    "病假": "病假天数",
+    "事假": "事假天数",
+    "_default": "事假天数"
+  },
+  "rules": {
+    "hours_per_day": 8,
+    "default_annual_leave_days": 5,
+    "default_workdays": 22,
+    "big_small_week": {
+      "enabled": true,
+      "working_saturday_anchor": "2026-07-11"
+    }
+  },
+  "notify": {
+    "open_ids": [
+      "ou_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    ],
+    "emails": []
+  }
+}

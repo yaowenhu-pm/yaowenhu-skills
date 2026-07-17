@@ -1,0 +1,27 @@
+# 凭证 —— 绝不进 git（每人本地各自持有）
+.infidive-docs.env
+.infidive-docs-token.json
+*.token_state.json
+*-token.json
+*.env
+
+# 运行态数据 —— 每人本地各自持有，不进 git
+.status_state.json
+.update-check
+*.lock
+events.jsonl
+*.events.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# token 备份文件（脚本自动生成）
+*token.json.bak*
+*.bak.2*
+
+# hr-autopilot 运行态
+hr-autopilot/config.json
+hr-autopilot/logs/
+hr-autopilot/state/
