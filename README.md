@@ -1,55 +1,66 @@
-# infiDive-skills
+# yaowenhu-skills
 
-infiDive 公司 AI 协作工具库。团队成员的 Codex 和 Claude 共享同一套协作工具,新人开箱即用,逐步累加 —— 每解决一个协作痛点就沉淀成一个 skill,而不是每人重复搭建。
+个人 Agent Skills 合集，遵循 [Agent Skills](https://agentskills.io) 开放标准（`SKILL.md` 格式），可被 Claude Code、Codex 等兼容 Agent 自动加载。
 
-## 设计原则
+A personal collection of Agent Skills following the [Agent Skills](https://agentskills.io) open standard (`SKILL.md` format), auto-loaded by Claude Code, Codex, and other compatible agents.
 
-- **共享**:工具代码 + 用法文档(本仓库,可 git)
-- **隔离**:每人用自己的凭证(本地 `.env` / `token.json`,`.gitignore` 排除,绝不进 git)
-- **谁改可追溯**:各人各自飞书身份,权限在飞书侧统一管
-- 完整方案 / 治理见内部协作工具规划文档
+---
 
-## 安装（新成员,一次性）
+## Skills
 
-```bash
-git clone https://git.infidive.com/infidive-ai/skills.git ~/infiDive-skills
-cd ~/infiDive-skills
-bash install.sh          # 同时软链所有 skill 到 Codex / Claude
-```
+| Skill | 说明 | Description |
+|-------|------|-------------|
+| [`creator-stats`](creator-stats/) | 抖音/小红书创作者主页大盘数据批量录入 CSV。驱动本机已登录的真实 Chrome 逐页访问主页，纯文本解析昵称、粉丝数、获赞数等公开数据，增量落盘、支持断点续跑。不写爬虫、不破解签名、不绕验证码。 | Batch-collect public profile stats (followers, likes, etc.) of Douyin / Xiaohongshu creators into a CSV. Drives your own logged-in Chrome page by page — no scraper, no signature cracking, no CAPTCHA bypassing. Incremental writes with resume support. |
+| [`elegant-docs`](elegant-docs/) | 优雅文档写作：让 Agent 写文档、评估文档、润色草稿时默认短、结论前置、结构可扫。纯提示词 Skill，零依赖。 | Elegant document writing: makes the agent default to concise, conclusion-first, scannable structure when writing, evaluating, or polishing documents. Pure-prompt skill, zero dependencies. |
 
-> 2026-07-17 起本仓库以自建 Gitea（git.infidive.com）为唯一主仓,GitHub 上的旧仓不再更新。已按旧地址克隆过的成员执行一次:
-> `git remote set-url origin https://git.infidive.com/infidive-ai/skills.git && git pull --rebase`
+---
 
-然后给需要授权的 skill 跑一次首次授权(见各 skill 的 `SKILL.md`)。之后在 Codex 或 Claude 中自然语言触发即可,例如「把这个飞书文档的标题改成 X」。
+## 安装 / Installation
 
-## 现有 skill
+Skill 本质是一个包含 `SKILL.md` 的目录，放进 Agent 的 skills 路径即可，无需安装命令。
 
-| skill | 作用 | 首次授权 |
-|---|---|---|
-| `feishu` | 读写飞书文档 / 推送 markdown 到知识库 / 监控 AI 服务状态 | 需(自己的飞书账号,`python3 setup.py`) |
-| `feishu-console` | 飞书开发者后台加权限/事件订阅/发版本(浏览器自动化) | 不需(用本人已登录飞书的浏览器) |
-| `elegant-docs` | 文档撰写/润色/评估,严格篇幅约束 | 不需 |
-| `wechat-article-extractor` | 解析微信公众号文章链接,提取标题/作者/正文/发布时间等结构化数据 | 不需(需先 `npm install`) |
-| `hr-autopilot` | 请假审批→考勤→工资单全自动(对话式请假+审批中心双通道),`./install.sh` 一键部署 | 不需(App 身份运行,表格需授权「小潜」可编辑) |
-| `creator-stats` | 抖音/小红书创作者大盘数据批量录入 CSV(提供主页链接,驱动本机登录态 Chrome 采集,断点续跑) | 不需(需本人 Chrome 已登录抖音/小红书 + Claude in Chrome 扩展) |
-
-## 更新
+A skill is just a directory containing a `SKILL.md`. Drop it into your agent's skills path — no installer needed.
 
 ```bash
-cd ~/infiDive-skills && git pull
+git clone https://github.com/yaowenhu-uestc/yaowenhu-skills.git ~/yaowenhu-skills
+
+# Claude Code
+mkdir -p ~/.claude/skills
+ln -s ~/yaowenhu-skills/creator-stats ~/.claude/skills/creator-stats
+ln -s ~/yaowenhu-skills/elegant-docs  ~/.claude/skills/elegant-docs
+
+# Codex
+mkdir -p ~/.codex/skills
+ln -s ~/yaowenhu-skills/creator-stats ~/.codex/skills/creator-stats
+ln -s ~/yaowenhu-skills/elegant-docs  ~/.codex/skills/elegant-docs
 ```
 
-软链自动指向新版,本地凭证不受影响。
+软链方式安装后，仓库 `git pull` 即完成升级。也可以直接 `cp -r` 复制目录。
 
-## 加新 skill(维护者 = A4)
+With symlinks, a `git pull` in the repo is all it takes to upgrade. Plain `cp -r` works too.
 
-1. 建 `<name>/SKILL.md`,frontmatter 必填 `name` + `description`(description 决定 Codex / Claude 何时加载,要写清触发场景)
-2. 配套脚本放 `<name>/scripts/`;若需凭证,写 `setup.py` 引导个人授权
-3. 凭证文件名加进 `.gitignore`
-4. `git push` + 通知成员 `git pull`
+装完新开会话即生效。Restart your agent session after installing.
 
-## 红线
+### 前置要求 / Prerequisites
 
-- 任何**个人凭证**(user token / 密码)绝不进本仓库,只在成员本地(`.gitignore` 已排除)
-- 唯一例外:公司共享 App 凭证(App ID/Secret)为让新人零配置授权而内置于 `feishu/setup.py`——因此**本仓库必须保持 private**,泄露时第一时间在飞书开发者后台重置 App Secret
-- 本仓库只放**通用工具代码 + 文档**,不放商业敏感内容(与 infiDive 保密目录分离)
+- `elegant-docs`：无 / none。
+- `creator-stats`：本机 Chrome 需安装 **Claude in Chrome** 扩展，且抖音、小红书为登录态。Requires the **Claude in Chrome** extension and logged-in Douyin / Xiaohongshu sessions in your local Chrome.
+
+---
+
+## 使用 / Usage
+
+安装后用自然语言触发即可（`description` 字段驱动自动匹配）：
+
+Trigger with natural language after installing (auto-matched via each skill's `description`):
+
+- 「帮我把这批抖音/小红书主页的粉丝数整理成表格」 → `creator-stats`
+- "Collect follower stats for these creator profile links into a CSV" → `creator-stats`
+- 「帮我润色一下这篇文档」「写一份 PRD」 → `elegant-docs`
+- "Polish this draft" / "Write a README for this project" → `elegant-docs`
+
+---
+
+## License
+
+MIT

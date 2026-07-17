@@ -10,12 +10,12 @@
 
 ### 安装
 
-通过根目录 `install.sh` 软链整个 skills 仓库：
+克隆仓库后把本目录软链（或复制）到 Agent 的 skills 路径：
 
 ```bash
-git clone https://github.com/infidive-ai/skills.git ~/infiDive-skills
-cd ~/infiDive-skills
-bash install.sh
+git clone https://github.com/yaowenhu-uestc/yaowenhu-skills.git ~/yaowenhu-skills
+ln -s ~/yaowenhu-skills/elegant-docs ~/.claude/skills/elegant-docs   # Claude Code
+ln -s ~/yaowenhu-skills/elegant-docs ~/.codex/skills/elegant-docs    # Codex
 ```
 
 安装后无需额外配置，Codex 和 Claude 都会自动加载本 skill。
