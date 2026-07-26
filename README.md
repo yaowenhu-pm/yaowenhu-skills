@@ -22,7 +22,7 @@ Skill 本质是一个包含 `SKILL.md` 的目录，放进 Agent 的 skills 路�
 A skill is just a directory containing a `SKILL.md`. Drop it into your agent's skills path — no installer needed.
 
 ```bash
-git clone https://github.com/yaowenhu-uestc/yaowenhu-skills.git ~/yaowenhu-skills
+git clone https://github.com/yaowenhu-pm/yaowenhu-skills.git ~/yaowenhu-skills
 
 # Claude Code
 mkdir -p ~/.claude/skills
