@@ -5,7 +5,7 @@
 #### 我自己每天在用的 Agent Skills，跑顺了才放出来
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-6-10B981?style=for-the-badge)](#-skills)
+[![Skills](https://img.shields.io/badge/Skills-7-10B981?style=for-the-badge)](#-skills)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-8B5CF6?style=for-the-badge)](https://agentskills.io)
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-D97706?style=flat-square&logo=anthropic&logoColor=white)
@@ -27,6 +27,7 @@
 | 📄 [**prd-doc**](#-prd-doc-prd-撰写) | PRD 撰写纪律：数值可实现、指标↔埋点对账、待定项闭环、评审回填 |
 | 🧾 [**invoice-archive**](#-invoice-archive邮箱发票归集) | 把邮箱里所有形态的发票（附件/eml 套娃/正文链接/图片票）归集成一个干净的报销文件夹 |
 | 📊 [**creator-stats**](#-creator-stats创作者数据录入) | 抖音/小红书创作者主页公开数据批量录入 CSV，驱动你自己登录态的 Chrome，不写爬虫 |
+| 🪪 [**personal-brand-builder**](#-personal-brand-builder个人品牌) | 简历、个人主页、全平台身份一站式打磨成自洽的品牌系统，附账号改名迁移清单 |
 
 其中四个文档类 Skill 是一条血统链：`elegant-docs`（写作基线）→ `table-docs`（三列表格结构）→ `research-doc`（调研方法论 + 飞书大表引擎）→ `prd-doc`（继承前两者，只补 PRD 特有部分）。
 
@@ -47,7 +48,7 @@ git clone https://github.com/yaowenhu-pm/yaowenhu-skills.git ~/yaowenhu-skills
 
 # Claude Code
 mkdir -p ~/.claude/skills
-for s in elegant-docs table-docs research-doc prd-doc invoice-archive creator-stats; do
+for s in elegant-docs table-docs research-doc prd-doc invoice-archive creator-stats personal-brand-builder; do
   ln -s ~/yaowenhu-skills/$s ~/.claude/skills/$s
 done
 
@@ -204,6 +205,35 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 </td></tr>
 </table>
 
+<table>
+<tr><td>
+
+### 🪪 personal-brand-builder（个人品牌）
+
+把简历、个人主页和全平台身份打磨成一套自洽的品牌系统。来自一次真实的 10 小时端到端实践，四个工作流全部可直接执行：
+
+- **简历**：语料提取 → 审校清单（口径/日期/术语/一致性/文件名）→ LaTeX 单页化（tectonic + 中文字体 + 嵌入校验）→ 外部评审的批判性采纳
+- **主页**：方案先行（参照站 token 提取 + 多方向视觉稿）→ framework-free 实现 → 桌面/移动/暗色三态验证
+- **身份统一**：头像/昵称/简介/域名/邮箱的全平台策略矩阵
+- **迁移清单**：GitHub 账号改名后的血泪排查清单（Pages 仓库名、README 链接、CORS 白名单、OAuth 白名单……）
+
+产出本 Skill 的完整对话记录（166 段，脱敏版）在 [personal-brand-skill](https://github.com/yaowenhu-pm/personal-brand-skill) 仓库。
+
+**怎么触发**
+
+```
+帮我改简历 / 审校简历
+做个人主页 / 重构主页
+统一一下我的头像昵称简介
+GitHub 账号改名了，帮我迁移
+```
+
+→ [SKILL.md](./personal-brand-builder/SKILL.md)
+
+</td></tr>
+</table>
+
+
 ---
 
 ## 前置要求
@@ -215,6 +245,7 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 | prd-doc（产出飞书文档时） | 同 research-doc |
 | invoice-archive | `pip3 install pypdf`；macOS（解二维码用系统 swift + CoreImage）；第 1 步邮箱扫描依赖飞书邮箱授权（同上，未随仓库发布），第 2-5 步脚本独立可用 |
 | creator-stats | 本机 Chrome 需安装 **Claude in Chrome** 扩展，且抖音、小红书为登录态 |
+| personal-brand-builder | 无（纯提示词）；LaTeX 简历环节用到 `tectonic`，主页部署用到 `gh`，按需安装 |
 
 ---
 
