@@ -5,7 +5,7 @@
 #### 我自己每天在用的 Agent Skills，跑顺了才放出来
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-7-10B981?style=for-the-badge)](#-skills)
+[![Skills](https://img.shields.io/badge/Skills-8-10B981?style=for-the-badge)](#-skills)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-8B5CF6?style=for-the-badge)](https://agentskills.io)
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-D97706?style=flat-square&logo=anthropic&logoColor=white)
@@ -25,11 +25,14 @@
 | 📐 [**table-docs**](#-table-docs三列表格文档) | 把任何条目型文档装进"类型 \| 事项 \| 说明"三列大表，只搬结构不改一个字 |
 | 🔬 [**research-doc**](#-research-doc调研报告) | 先立假设再用数据打靶的调研报告方法论 + 飞书"一张大表"生产引擎 |
 | 📄 [**prd-doc**](#-prd-doc-prd-撰写) | PRD 撰写纪律：数值可实现、指标↔埋点对账、待定项闭环、评审回填 |
+| [**one-pager-doc**](./one-pager-doc/SKILL.md) | 产品一页纸：明确用户与任务、定位价值、阶段验证、真实进展和最大未决 |
 | 🧾 [**invoice-archive**](#-invoice-archive邮箱发票归集) | 把邮箱里所有形态的发票（附件/eml 套娃/正文链接/图片票）归集成一个干净的报销文件夹 |
 | 📊 [**creator-stats**](#-creator-stats创作者数据录入) | 抖音/小红书创作者主页公开数据批量录入 CSV，驱动你自己登录态的 Chrome，不写爬虫 |
 | 🪪 [**personal-brand-builder**](#-personal-brand-builder个人品牌) | 简历、个人主页、全平台身份一站式打磨成自洽的品牌系统，附账号改名迁移清单 |
 
 其中四个文档类 Skill 是一条血统链：`elegant-docs`（写作基线）→ `table-docs`（三列表格结构）→ `research-doc`（调研方法论 + 飞书大表引擎）→ `prd-doc`（继承前两者，只补 PRD 特有部分）。
+
+`one-pager-doc` 独立用于产品方向对齐，默认采用“主题｜当前表述”两列的一页稿，写作方法与模板无外部依赖。
 
 ---
 
@@ -48,7 +51,7 @@ git clone https://github.com/yaowenhu-pm/yaowenhu-skills.git ~/yaowenhu-skills
 
 # Claude Code
 mkdir -p ~/.claude/skills
-for s in elegant-docs table-docs research-doc prd-doc invoice-archive creator-stats personal-brand-builder; do
+for s in elegant-docs table-docs research-doc prd-doc one-pager-doc invoice-archive creator-stats personal-brand-builder; do
   ln -s ~/yaowenhu-skills/$s ~/.claude/skills/$s
 done
 
@@ -158,6 +161,28 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 <table>
 <tr><td>
 
+### one-pager-doc（产品一页纸）
+
+用一页串起使命、用户场景、定位价值、长期方向、阶段目标、成功标准、体验原则、当前进展和最大未决，支持起草、评估与局部更新。
+
+把事实、假设、拟议目标和待定项写清楚；区分原型、Demo、真实使用与商业验证。阶段目标能按成功标准验收，基线未测时不编造提效比例，不把功能清单当作产品价值。
+
+**怎么触发**
+
+```
+用 $one-pager-doc，根据这些资料写一份产品方向稿
+评估这份产品 one-pager，看看目标和成功标准能不能对上
+根据最新访谈更新一页纸，保留我手改的其他内容
+```
+
+→ [SKILL.md](./one-pager-doc/SKILL.md) · [填写模板](./one-pager-doc/references/one-pager-template.md)
+
+</td></tr>
+</table>
+
+<table>
+<tr><td>
+
 ### 🧾 invoice-archive（邮箱发票归集）
 
 把邮箱里所有和发票有关的东西变成一个干净的报销文件夹：`序号_开票日期_销售方_金额元.pdf` 平铺 + 一份带总金额的汇总 CSV。
@@ -241,6 +266,7 @@ GitHub 账号改名了，帮我迁移
 | Skill | 依赖 |
 |---|---|
 | elegant-docs / table-docs / prd-doc | 无（纯提示词） |
+| one-pager-doc | 无（写作方法与模板）；在线交付使用当前可用的文档工具与本人授权 |
 | research-doc | 图表用 Python + matplotlib；产出飞书文档需自备飞书开放平台应用授权（引擎脚本依赖一个提供 token 的 `feishu.py`，未随本仓库发布，方法论部分可独立使用） |
 | prd-doc（产出飞书文档时） | 同 research-doc |
 | invoice-archive | `pip3 install pypdf`；macOS（解二维码用系统 swift + CoreImage）；第 1 步邮箱扫描依赖飞书邮箱授权（同上，未随仓库发布），第 2-5 步脚本独立可用 |

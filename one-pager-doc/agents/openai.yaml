@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品 one-pager"
+  short_description: "将产品资料写成一页方向稿，明确用户价值、阶段验证、真实进展和最大未决"
+  default_prompt: "使用 $one-pager-doc，根据我的资料撰写或更新产品一页纸，分清事实、假设和待定项，写清阶段目标与成功标准。"
