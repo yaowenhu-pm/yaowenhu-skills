@@ -2,7 +2,7 @@
 
 # 🧰 yaowenhu-skills
 
-#### 我自己每天在用的 Agent Skills，跑顺了才放出来
+#### 文档写作、调研报告、PRD 等 Agent Skills
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-8-10B981?style=for-the-badge)](#-skills)
@@ -13,7 +13,7 @@
 
 </div>
 
-每个 Skill 都是一个包含 `SKILL.md` 的目录，遵循 [Agent Skills](https://agentskills.io) 开放标准，Claude Code、Codex 等兼容 Agent 会根据 `description` 字段自动加载触发。这里的东西都在我自己的日常工作里跑过一段时间，坑基本踩完了才沉淀成 Skill。
+每个 Skill 都是一个包含 `SKILL.md` 的目录，遵循 [Agent Skills](https://agentskills.io) 开放标准，Claude Code、Codex 等兼容 Agent 会根据 `description` 字段自动加载触发。
 
 ---
 
@@ -58,7 +58,7 @@ done
 # Codex 同理，路径换成 ~/.codex/skills
 ```
 
-装完新开会话即生效。你的 Agent 不支持 Skill 也没关系：把对应目录的 `SKILL.md` 全文当成项目规则文件（或直接贴进对话）让 Agent 照着执行，效果一致。
+装完新开会话即生效。你的 Agent 不支持 Skill 也没关系：把对应目录的 `SKILL.md` 全文当成项目规则文件（或直接贴进对话）让 Agent 照着执行。
 
 ---
 
@@ -69,7 +69,7 @@ done
 
 ### ✍️ elegant-docs（优雅文档）
 
-让 Agent 写文档、评估文档、润色草稿时默认遵守一套硬约束：短、结论前置、结构可扫、去术语。纯提示词 Skill，零依赖，装上就能用。
+让 Agent 写文档、评估文档、润色草稿时默认遵守一套硬约束：短、结论前置、结构可扫、去术语。纯提示词 Skill，零依赖。
 
 **怎么触发**
 
@@ -115,9 +115,9 @@ done
 
 三块东西都在里面：
 
-- **立论与论证纪律**：九条硬规则，每条都来自一次真实翻车（理论标签贴错、n=1 写成结论、归一化口径驱动结论、时间混杂变量……），交付前内置对抗性审查
+- **立论与论证纪律**：九条硬规则，覆盖理论标签、样本量、归一化口径、时间混杂变量等问题，交付前内置对抗性审查
 - **写作红线**：结论不说满、判断带客观依据、引用可溯源、区分实测/统计/解读三类内容
-- **飞书大表引擎**（`scripts/feishu_bigtable.py`）：整篇一张"类型｜事项｜说明"大表，图表和数据文件嵌进单元格，文档自包含可复跑；飞书 descendant 接口的十几个坑全部内置
+- **飞书大表引擎**（`scripts/feishu_bigtable.py`）：整篇一张"类型｜事项｜说明"大表，图表和数据文件嵌进单元格，文档自包含可复跑
 
 **怎么触发**
 
@@ -235,12 +235,12 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 
 ### 🪪 personal-brand-builder（个人品牌）
 
-把简历、个人主页和全平台身份打磨成一套自洽的品牌系统。来自一次真实的 10 小时端到端实践，四个工作流全部可直接执行：
+把简历、个人主页和全平台身份打磨成一套自洽的品牌系统。包含四个工作流：
 
 - **简历**：语料提取 → 审校清单（口径/日期/术语/一致性/文件名）→ LaTeX 单页化（tectonic + 中文字体 + 嵌入校验）→ 外部评审的批判性采纳
 - **主页**：方案先行（参照站 token 提取 + 多方向视觉稿）→ framework-free 实现 → 桌面/移动/暗色三态验证
 - **身份统一**：头像/昵称/简介/域名/邮箱的全平台策略矩阵
-- **迁移清单**：GitHub 账号改名后的血泪排查清单（Pages 仓库名、README 链接、CORS 白名单、OAuth 白名单……）
+- **迁移清单**：GitHub 账号改名后的排查清单（Pages 仓库名、README 链接、CORS 白名单、OAuth 白名单……）
 
 产出本 Skill 的完整对话记录（166 段，脱敏版）在 [personal-brand-skill](https://github.com/yaowenhu-pm/personal-brand-skill) 仓库。
 
