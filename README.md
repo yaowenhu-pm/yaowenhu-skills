@@ -1,11 +1,11 @@
 <div align="center">
 
-# 🧰 yaowenhu-skills
+# yaowenhu-skills
 
 #### 文档写作、调研报告、PRD 等 Agent Skills
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-8-10B981?style=for-the-badge)](#-skills)
+[![Skills](https://img.shields.io/badge/Skills-8-10B981?style=for-the-badge)](#skills)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-8B5CF6?style=for-the-badge)](https://agentskills.io)
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-D97706?style=flat-square&logo=anthropic&logoColor=white)
@@ -17,18 +17,18 @@
 
 ---
 
-## 📋 目录
+## 目录
 
 | 名字 | 一句话 |
 |---|---|
-| ✍️ [**elegant-docs**](#%EF%B8%8F-elegant-docs优雅文档) | 写文档、评文档、润色草稿时默认短、结论前置、结构可扫。纯提示词，零依赖 |
-| 📐 [**table-docs**](#-table-docs三列表格文档) | 把任何条目型文档装进"类型 \| 事项 \| 说明"三列大表，只搬结构不改一个字 |
-| 🔬 [**research-doc**](#-research-doc调研报告) | 先立假设再用数据打靶的调研报告方法论 + 飞书"一张大表"生产引擎 |
-| 📄 [**prd-doc**](#-prd-doc-prd-撰写) | PRD 撰写纪律：数值可实现、指标↔埋点对账、待定项闭环、评审回填 |
+| [**elegant-docs**](#elegant-docs优雅文档) | 写文档、评文档、润色草稿时默认短、结论前置、结构可扫。纯提示词，零依赖 |
+| [**table-docs**](#table-docs三列表格文档) | 把任何条目型文档装进"类型 \| 事项 \| 说明"三列大表，只搬结构不改一个字 |
+| [**research-doc**](#research-doc调研报告) | 先立假设再用数据打靶的调研报告方法论 + 飞书"一张大表"生产引擎 |
+| [**prd-doc**](#prd-docprd-撰写) | PRD 撰写纪律：数值可实现、指标↔埋点对账、待定项闭环、评审回填 |
 | [**one-pager-doc**](./one-pager-doc/SKILL.md) | 产品一页纸：明确用户与任务、定位价值、阶段验证、真实进展和最大未决 |
-| 🧾 [**invoice-archive**](#-invoice-archive邮箱发票归集) | 把邮箱里所有形态的发票（附件/eml 套娃/正文链接/图片票）归集成一个干净的报销文件夹 |
-| 📊 [**creator-stats**](#-creator-stats创作者数据录入) | 抖音/小红书创作者主页公开数据批量录入 CSV，驱动你自己登录态的 Chrome，不写爬虫 |
-| 🪪 [**personal-brand-builder**](#-personal-brand-builder个人品牌) | 简历、个人主页、全平台身份一站式打磨成自洽的品牌系统，附账号改名迁移清单 |
+| [**invoice-archive**](#invoice-archive邮箱发票归集) | 把邮箱里所有形态的发票（附件/eml 套娃/正文链接/图片票）归集成一个干净的报销文件夹 |
+| [**creator-stats**](#creator-stats创作者数据录入) | 抖音/小红书创作者主页公开数据批量录入 CSV，驱动你自己登录态的 Chrome，不写爬虫 |
+| [**personal-brand-builder**](#personal-brand-builder个人品牌) | 简历、个人主页、全平台身份一站式打磨成自洽的品牌系统，附账号改名迁移清单 |
 
 其中四个文档类 Skill 是一条血统链：`elegant-docs`（写作基线）→ `table-docs`（三列表格结构）→ `research-doc`（调研方法论 + 飞书大表引擎）→ `prd-doc`（继承前两者，只补 PRD 特有部分）。
 
@@ -36,7 +36,7 @@
 
 ---
 
-## 📦 安装方式
+## 安装方式
 
 Skill 本质是一个目录，放进 Agent 的 skills 路径即可，无需安装命令。也可以直接跟你的 Agent 说：
 
@@ -62,12 +62,12 @@ done
 
 ---
 
-## ✨ Skills
+## Skills
 
 <table>
 <tr><td>
 
-### ✍️ elegant-docs（优雅文档）
+### elegant-docs（优雅文档）
 
 让 Agent 写文档、评估文档、润色草稿时默认遵守一套硬约束：短、结论前置、结构可扫、去术语。纯提示词 Skill，零依赖。
 
@@ -87,7 +87,7 @@ done
 <table>
 <tr><td>
 
-### 📐 table-docs（三列表格文档）
+### table-docs（三列表格文档）
 
 入职指南、操作清单、配置说明、FAQ 这类条目型文档，正文主体固定用"类型 | 事项 | 说明"三列大表，不用章节 + 段落的传统结构。
 
@@ -109,7 +109,7 @@ done
 <table>
 <tr><td>
 
-### 🔬 research-doc（调研报告）
+### research-doc（调研报告）
 
 账号拆解、竞品研究、数据分析这类"用数据回答问题"的调研报告。核心主张：**先立假设，再用数据打靶**——不罗列发现，让每个数字都在回答一个明确的问题。
 
@@ -135,14 +135,14 @@ done
 <table>
 <tr><td>
 
-### 📄 prd-doc（PRD 撰写）
+### prd-doc（PRD 撰写）
 
 PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构继承 table-docs，生产管线继承 research-doc，本 Skill 只补 PRD 特有的纪律：
 
 - **数值必须可实现**：给公式 + 逐级数表，禁止"适当增加""视情况而定"
 - **每个参数三件套**：默认值｜是否进远程配置｜生效层级
 - **指标 ↔ 埋点对账**：每个指标指得到埋点事件，每个事件答得出"谁用它做什么决策"
-- **待定项闭环**：行内 🔵 标记 + "待拍板项"集中汇总，拍板后回填不留悬空
+- **待定项闭环**：行内待定标记 + "待拍板项"集中汇总，拍板后回填不留悬空
 - **评审后升版本、记修订、保留修正痕迹**，用户手改过的文档只做增量修改
 
 **怎么触发**
@@ -183,7 +183,7 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 <table>
 <tr><td>
 
-### 🧾 invoice-archive（邮箱发票归集）
+### invoice-archive（邮箱发票归集）
 
 把邮箱里所有和发票有关的东西变成一个干净的报销文件夹：`序号_开票日期_销售方_金额元.pdf` 平铺 + 一份带总金额的汇总 CSV。
 
@@ -212,7 +212,7 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 <table>
 <tr><td>
 
-### 📊 creator-stats（创作者数据录入）
+### creator-stats（创作者数据录入）
 
 抖音/小红书创作者主页大盘数据批量录入 CSV：昵称、账号 ID、粉丝数、获赞数、关注数、作品数、IP 属地、简介。
 
@@ -233,7 +233,7 @@ PRD / 需求文档 / 数值体系规格的撰写与评审闭环。文档结构�
 <table>
 <tr><td>
 
-### 🪪 personal-brand-builder（个人品牌）
+### personal-brand-builder（个人品牌）
 
 把简历、个人主页和全平台身份打磨成一套自洽的品牌系统。包含四个工作流：
 
